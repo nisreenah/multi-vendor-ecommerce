@@ -37,5 +37,4 @@ Route::get('/store', function () {
     return view('store.index');
 });
 
-
 require __DIR__.'/auth.php';
