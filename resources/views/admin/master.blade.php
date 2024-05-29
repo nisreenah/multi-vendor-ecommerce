@@ -34,7 +34,13 @@
 
     @include('admin.includes.header')
 
-    @yield('content')
+    <!--start page wrapper -->
+    <div class="page-wrapper">
+        <div class="page-content">
+            @yield('content')
+        </div>
+    </div>
+    <!--end page wrapper -->
 
     <!--start overlay-->
     <div class="overlay toggle-icon"></div>

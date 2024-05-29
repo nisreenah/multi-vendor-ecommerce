@@ -345,8 +345,22 @@
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
-                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+{{--                    <li><--}}
+{{--                        a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>--}}
+{{--                    </li>--}}
+
+                    <li class="d">
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <button type="submit" class="dropdown-item">
+                                    <i class='bx bx-log-out-circle'></i> <span>{{ __('Log Out') }}</span>
+                                </button>
+                            </div>
+                        </form>
                     </li>
+
                 </ul>
             </div>
         </nav>
