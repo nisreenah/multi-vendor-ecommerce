@@ -53,4 +53,9 @@ Route::get('/store/reset-password', function () {
     return view('store.auth.reset-password');
 })->name('store.reset-password');
 
+Route::get('/store/profile', function () {
+    return view('store.profile.account');
+})->name('store.profile.account');
+
+
 require __DIR__.'/auth.php';
