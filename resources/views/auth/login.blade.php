@@ -65,7 +65,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="remember_me" checked>
+                                                        <input class="form-check-input" type="checkbox" id="remember_me" name="remember" checked>
                                                         <label class="form-check-label" for="remember_me">{{ __('Remember me') }}</label>
                                                     </div>
                                                 </div>

@@ -37,4 +37,20 @@ Route::get('/store', function () {
     return view('store.index');
 });
 
+Route::get('/store/login', function () {
+    return view('store.auth.login');
+})->name('store.login');
+
+Route::get('/store/register', function () {
+    return view('store.auth.register');
+})->name('store.register');
+
+Route::get('/store/forgot-password', function () {
+    return view('store.auth.forgot-password');
+})->name('store.forgot-password');
+
+Route::get('/store/reset-password', function () {
+    return view('store.auth.reset-password');
+})->name('store.reset-password');
+
 require __DIR__.'/auth.php';
