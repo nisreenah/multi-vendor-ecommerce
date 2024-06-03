@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="page-content pt-150 pb-150">
+    <div class="page-content pt-80 pb-80 bg-light bg-gradient">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 m-auto">
@@ -46,6 +46,11 @@
                                         <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
                                            href="#account-detail" role="tab" aria-controls="account-detail"
                                            aria-selected="true"><i class="fi-rs-user mr-10"></i>Account details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="update-password-tab" data-bs-toggle="tab"
+                                           href="#update-password" role="tab" aria-controls="update-password"
+                                           aria-selected="true"><i class="fi-rs-user mr-10"></i>Update Password</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link">
@@ -83,6 +88,10 @@
                                      aria-labelledby="account-detail-tab">
                                     @include('store.profile.includes.account-details')
                                 </div>
+                                <div class="tab-pane fade" id="update-password" role="tabpanel"
+                                     aria-labelledby="update-password-tab">
+                                    @include('store.profile.includes.update-password')
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,8 +99,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('footer')
-    @include('store.includes.footer')
 @endsection

@@ -29,7 +29,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = Auth::user();
+
+        if ($user->hasRole('admin') || $user->hasRole('vendor')) {
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } else { // if user role
+            return redirect()->route('store.profile');
+        }
     }
 
     /**
@@ -37,12 +43,19 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $user = Auth::user();
+        $redirectURL = route('store.login');
+
+        if ($user->hasRole('admin') || $user->hasRole('vendor')) {
+            $redirectURL = route('login');
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect($redirectURL);
     }
 }

@@ -42,7 +42,7 @@
                                                         <label class="form-check-label" for="remember_me"><span>Remember me</span></label>
                                                     </div>
                                                 </div>
-                                                <a class="text-muted" href="{{ route('store.auth.forgot-password') }}">Forgot password?</a>
+                                                <a class="text-muted" href="{{ route('store.forgot-password') }}">Forgot password?</a>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-heading btn-block hover-up" name="login">Log in</button>
