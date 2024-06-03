@@ -14,43 +14,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware(['auth', 'verified'])->group(function () {
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('admin.index');
+    })->name('dashboard');
 
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('store')->group(function () {
 
-Route::get('/admin', function () {
-    return view('admin.index');
+    Route::get('/', function () {
+        return view('store.index');
+    });
+
+    Route::get('/login', function () {
+        return view('store.auth.login');
+    })->name('store.login');
+
+    Route::get('/register', function () {
+        return view('store.auth.register');
+    })->name('store.register');
+
+    Route::get('/forgot-password', function () {
+        return view('store.auth.forgot-password');
+    })->name('store.forgot-password');
+
+    Route::get('/reset-password', function () {
+        return view('store.auth.reset-password');
+    })->name('store.reset-password');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', function () {
+            return view('store.profile.account');
+        })->name('store.profile');
+    });
 });
 
-Route::get('/store', function () {
-    return view('store.index');
-});
-
-Route::get('/store/login', function () {
-    return view('store.auth.login');
-})->name('store.login');
-
-Route::get('/store/register', function () {
-    return view('store.auth.register');
-})->name('store.register');
-
-Route::get('/store/forgot-password', function () {
-    return view('store.auth.forgot-password');
-})->name('store.forgot-password');
-
-Route::get('/store/reset-password', function () {
-    return view('store.auth.reset-password');
-})->name('store.reset-password');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
