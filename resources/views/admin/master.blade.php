@@ -6,23 +6,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }} " type="image/png" />
+    <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }} " type="image/png"/>
     <!--plugins-->
     <link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }} " rel="stylesheet"/>
-    <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet"/>
+    @yield('styles')
     <!-- loader-->
-    <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet"/>
     <script src="{{ asset('backend/assets/js/pace.min.js') }}"></script>
     <!-- Bootstrap CSS -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/dark-theme.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/semi-dark.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/dark-theme.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/semi-dark.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css') }}"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+
     <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 </head>
 
@@ -53,7 +57,7 @@
 <!--end wrapper-->
 <!--start switcher-->
 <div class="switcher-wrapper">
-    <div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+    <div class="switcher-btn"><i class='bx bx-cog bx-spin'></i>
     </div>
     <div class="switcher-body">
         <div class="d-flex align-items-center">
@@ -164,13 +168,56 @@
 <script src="{{ asset('backend/assets/plugins/jquery-knob/excanvas.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
 <script>
-    $(function() {
+    $(function () {
         $(".knob").knob();
     });
 </script>
 <script src="{{ asset('backend/assets/js/index.js') }}"></script>
+
+@yield('scripts')
+
 <!--app JS-->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if (Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}"
+    switch (type) {
+        case 'info':
+
+            toastr.options.timeOut = 10000;
+            toastr.info("{{ Session::get('message') }}");
+            var audio = new Audio('audio.mp3');
+            audio.play();
+            break;
+        case 'success':
+
+            toastr.options.timeOut = 10000;
+            toastr.success("{{ Session::get('message') }}");
+            var audio = new Audio('audio.mp3');
+            audio.play();
+
+            break;
+        case 'warning':
+
+            toastr.options.timeOut = 10000;
+            toastr.warning("{{ Session::get('message') }}");
+            var audio = new Audio('audio.mp3');
+            audio.play();
+
+            break;
+        case 'error':
+
+            toastr.options.timeOut = 10000;
+            toastr.error("{{ Session::get('message') }}");
+            var audio = new Audio('audio.mp3');
+            audio.play();
+
+            break;
+    }
+    @endif
+</script>
 </body>
 
 </html>
