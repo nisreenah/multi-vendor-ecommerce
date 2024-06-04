@@ -13,7 +13,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+{{--                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>--}}
                 </ol>
             </nav>
         </div>
@@ -51,18 +51,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($brands as $brand)
+                    @foreach($categories as $category)
                         <tr>
-                            <td>{{ $brand->id }}</td>
-                            <td>{{ $brand->name }}</td>
-                            <td>{{ $brand->slug }}</td>
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->slug }}</td>
                             <td>
-                                <img class="" width="100px" src="{{ asset('upload/brands/'. $brand->image ) }}">
+                                <img class="" width="100px" src="{{ asset('upload/categories/'. $category->image ) }}">
                             </td>
-                            <td>{{ $brand->updated_at }}</td>
+                            <td>{{ $category->updated_at }}</td>
                             <td>
-                                {{-- <a href="#" class="btn btn-info"><i class="lni lni-eye"></i></a>--}}
-                                <a href="{{ route('brands.edit', $brand->id) }}" class="btn btn-success">
+                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success">
                                     <i class="fadeIn animated bx bx-pencil"></i>
                                 </a>
                             </td>
@@ -76,6 +75,7 @@
     </div>
 
 @endsection
+
 
 @section('scripts')
 

@@ -86,64 +86,15 @@
         </li>
 
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
-                <div class="menu-title">eCommerce</div>
+                <div class="menu-title">Categories</div>
             </a>
             <ul>
-                <li><a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Products</a>
+                <li><a href="{{ route('categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All Categories</a>
                 </li>
-                <li><a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Product Details</a>
-                </li>
-                <li><a href="ecommerce-add-new-products.html"><i class="bx bx-right-arrow-alt"></i>Add New Products</a>
-                </li>
-                <li><a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
-                </div>
-                <div class="menu-title">Components</div>
-            </a>
-            <ul>
-                <li><a href="component-alerts.html"><i class="bx bx-right-arrow-alt"></i>Alerts</a>
-                </li>
-                <li><a href="component-accordions.html"><i class="bx bx-right-arrow-alt"></i>Accordions</a>
-                </li>
-                <li><a href="component-badges.html"><i class="bx bx-right-arrow-alt"></i>Badges</a>
-                </li>
-                <li><a href="component-buttons.html"><i class="bx bx-right-arrow-alt"></i>Buttons</a>
-                </li>
-                <li><a href="component-cards.html"><i class="bx bx-right-arrow-alt"></i>Cards</a>
-                </li>
-                <li><a href="component-carousels.html"><i class="bx bx-right-arrow-alt"></i>Carousels</a>
-                </li>
-                <li><a href="component-list-groups.html"><i class="bx bx-right-arrow-alt"></i>List Groups</a>
-                </li>
-                <li><a href="component-media-object.html"><i class="bx bx-right-arrow-alt"></i>Media Objects</a>
-                </li>
-                <li><a href="component-modals.html"><i class="bx bx-right-arrow-alt"></i>Modals</a>
-                </li>
-                <li><a href="component-navs-tabs.html"><i class="bx bx-right-arrow-alt"></i>Navs & Tabs</a>
-                </li>
-                <li><a href="component-navbar.html"><i class="bx bx-right-arrow-alt"></i>Navbar</a>
-                </li>
-                <li><a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>
-                </li>
-                <li><a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers & Tooltips</a>
-                </li>
-                <li><a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>
-                </li>
-                <li><a href="component-spinners.html"><i class="bx bx-right-arrow-alt"></i>Spinners</a>
-                </li>
-                <li><a href="component-notifications.html"><i class="bx bx-right-arrow-alt"></i>Notifications</a>
-                </li>
-                <li><a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs & Chips</a>
-                </li>
+                <li><a href="{{ route('categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Category</a>
             </ul>
         </li>
         <li>
