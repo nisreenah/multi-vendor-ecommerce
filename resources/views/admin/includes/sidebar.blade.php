@@ -89,7 +89,7 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
-                <div class="menu-title">Categories</div>
+                <div class="menu-title">Main Categories</div>
             </a>
             <ul>
                 <li><a href="{{ route('categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All Categories</a>
@@ -97,6 +97,20 @@
                 <li><a href="{{ route('categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Category</a>
             </ul>
         </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-grid-alt'></i>
+                </div>
+                <div class="menu-title">Sub Categories</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('sub-categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All SubCategories</a>
+                </li>
+                <li><a href="{{ route('sub-categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New SubCategory</a>
+            </ul>
+        </li>
+
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-user-circle"></i>

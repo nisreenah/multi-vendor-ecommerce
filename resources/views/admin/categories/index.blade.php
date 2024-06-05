@@ -11,25 +11,14 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-cart"></i> Categories</a>
                     </li>
-                    {{--                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>--}}
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown"><span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"><a class="dropdown-item"
-                                                                                       href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript:;">Separated link</a>
-                </div>
+                <a href="{{ route('categories.create') }}" class="btn btn-primary">Add New Category</a>
             </div>
         </div>
     </div>
@@ -61,14 +50,11 @@
                             </td>
                             <td>{{ $category->updated_at }}</td>
                             <td>
-                                {{--                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success">--}}
-                                {{--                                    <i class="fadeIn animated bx bx-pencil"></i>--}}
-                                {{--                                </a>--}}
-
                                 <div class="d-flex order-actions">
-                                    <a href="{{ route('categories.edit', $category->id) }}" class=""><i
-                                            class="bx bxs-edit"></i></a>
-                                    <a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="">
+                                        <i class="bx bxs-edit"></i></a>
+                                    {{--show all sub categories of the given main category--}}
+                                    <a href="{{ route('categories.show', $category->id) }}" class="ms-3"><i class="lni lni-eye"></i></a>
                                 </div>
                             </td>
                         </tr>

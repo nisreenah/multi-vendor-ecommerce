@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('sub-categories', SubCategoryController::class);
 
 });
 
