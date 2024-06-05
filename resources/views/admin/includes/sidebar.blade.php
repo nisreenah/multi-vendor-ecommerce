@@ -99,6 +99,18 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-user-circle"></i>
+                </div>
+                <div class="menu-title">Users</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('users.index') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a>
+                </li>
+                <li><a href="{{ route('users.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New User</a>
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
                 <div class="menu-title">Content</div>
