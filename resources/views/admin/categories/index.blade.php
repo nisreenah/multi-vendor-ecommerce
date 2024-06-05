@@ -13,7 +13,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-{{--                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>--}}
+                    {{--                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>--}}
                 </ol>
             </nav>
         </div>
@@ -34,14 +34,14 @@
         </div>
     </div>
     <!--end breadcrumb-->
-{{--    <h6 class="mb-0 text-uppercase">DataTable Example</h6>--}}
+    {{--    <h6 class="mb-0 text-uppercase">DataTable Example</h6>--}}
     <hr/>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <table id="example" class="table table-hover" style="width:100%">
                     <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th>ID</th>
                         <th>Name</th>
                         <th>Slug</th>
@@ -61,9 +61,15 @@
                             </td>
                             <td>{{ $category->updated_at }}</td>
                             <td>
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success">
-                                    <i class="fadeIn animated bx bx-pencil"></i>
-                                </a>
+                                {{--                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success">--}}
+                                {{--                                    <i class="fadeIn animated bx bx-pencil"></i>--}}
+                                {{--                                </a>--}}
+
+                                <div class="d-flex order-actions">
+                                    <a href="{{ route('categories.edit', $category->id) }}" class=""><i
+                                            class="bx bxs-edit"></i></a>
+                                    <a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

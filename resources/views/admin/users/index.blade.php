@@ -34,7 +34,7 @@
         </div>
     </div>
     <!--end breadcrumb-->
-    {{--    <h6 class="mb-0 text-uppercase">DataTable Example</h6>--}}
+
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -44,34 +44,46 @@
                     <tr class="table-primary">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Slug</th>
-                        <th>Image</th>
-                        <th>Updated At</th>
+                        <th>Username</th>
+                        <th>Role</th>
+
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Joined At</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($brands as $brand)
+                    @foreach($users as $user)
                         <tr>
-                            <td>{{ $brand->id }}</td>
-                            <td>{{ $brand->name }}</td>
-                            <td>{{ $brand->slug }}</td>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->username }}</td>
                             <td>
-                                <img class="" width="100px" src="{{ asset('upload/brands/'. $brand->image ) }}">
+                                @if($user->getRoleNames()[0] == 'admin')
+                                    <span class="badge bg-secondary">Admin</span>
+                                @elseif($user->getRoleNames()[0] == 'vendor')
+                                    <span class="badge bg-warning">Vendor</span>
+                                @else
+                                    <span class="badge bg-primary">User</span>
+                                @endif
                             </td>
-                            <td>{{ $brand->updated_at }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
-                                {{-- <a href="#" class="btn btn-info"><i class="lni lni-eye"></i></a>--}}
-                                {{--                                <a href="{{ route('brands.edit', $brand->id) }}" class="btn btn-success">--}}
-                                {{--                                    <i class="fadeIn animated bx bx-pencil"></i>--}}
-                                {{--                                </a>--}}
-
+                                @if($user->status == 'active')
+                                    <span class="badge rounded-pill bg-info">Active</span>
+                                @else
+                                    <span class="badge rounded-pill bg-danger">Inactive</span>
+                                @endif
+                            </td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>
                                 <div class="d-flex order-actions">
-                                    <a href="{{ route('brands.edit', $brand->id) }}" class=""><i
-                                            class="bx bxs-edit"></i></a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class=""><i class="bx bxs-edit"></i></a>
                                     <a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
                                 </div>
                             </td>
+
                         </tr>
                     @endforeach
                     </tbody>
