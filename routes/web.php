@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\GalleryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('brands', BrandController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('sub-categories', SubCategoryController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('gallery', GalleryController::class);
 
 });
 

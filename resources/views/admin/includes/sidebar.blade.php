@@ -113,6 +113,20 @@
 
         <li>
             <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon">
+                    <i class="fadeIn animated bx bx-store"></i>
+                </div>
+                <div class="menu-title">Products</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('products.index') }}"><i class="bx bx-right-arrow-alt"></i>All Products</a>
+                </li>
+                <li><a href="{{ route('products.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Product</a>
+            </ul>
+        </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-user-circle"></i>
                 </div>
                 <div class="menu-title">Users</div>

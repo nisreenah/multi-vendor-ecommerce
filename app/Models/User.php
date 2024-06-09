@@ -51,4 +51,10 @@ class User extends Authenticatable
         'password' => 'hashed',
         'role' => UserRole::class,
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
 }
