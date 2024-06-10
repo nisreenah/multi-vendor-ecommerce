@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreSliderRequest;
-use App\Http\Requests\UpdateSliderRequest;
-use App\Models\Slider;
+use App\Http\Requests\StoreBannerRequest;
+use App\Http\Requests\UpdateBannerRequest;
+use App\Models\Banner;
 
-class SliderController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sliders = Slider::all();
-        return view('admin.sliders.index', compact('sliders'));
+       $banners = Banner::all();
+       return view('admin.banners.index', compact('banners'));
     }
 
     /**
@@ -23,37 +23,38 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.sliders.create');
+        return view('admin.banners.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSliderRequest $request)
+    public function store(StoreBannerRequest $request)
     {
         $inputs = $request->all();
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/sliders'), $filename);
+            $file->move(public_path('upload/banners'), $filename);
             $inputs['image'] = $filename;
         }
 
-        Slider::create($inputs);
+        Banner::create($inputs);
 
         $notification = array(
-            'message' => 'Slider has been created successfully.',
+            'message' => 'Brand has been created successfully.',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('sliders.index')->with($notification);
+        return redirect()->route('banners.index')->with($notification);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Slider $slider)
+    public function show(Banner $banner)
     {
         //
     }
@@ -61,36 +62,35 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Slider $slider)
+    public function edit(Banner $banner)
     {
-        return view('admin.sliders.edit', compact('slider'));
+        return view('admin.banners.edit', compact('banner'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSliderRequest $request, Slider $slider)
+    public function update(UpdateBannerRequest $request, Banner $banner)
     {
         $inputs = $request->all();
 
         if ($request->hasFile('image')) {
 
-            // Delete old image
-            $image_path = '/upload/sliders/' . $slider->image;
+            $image_path = '/upload/banners/' . $banner->image;
             unlink(public_path() . $image_path);
 
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/sliders'), $filename);
+            $file->move(public_path('upload/banners'), $filename);
             $inputs['image'] = $filename;
         }
 
-        $message = 'Slider has been updated successfully.';
+        $message = 'Banner has been updated successfully.';
         $alertType = 'success';
 
-        $updated = $slider->update($inputs);
+        $updated = $banner->update($inputs);
         if (!$updated) {
-            $message = 'Slider dose not updated successfully.!';
+            $message = 'Banner dose not updated successfully.!';
             $alertType = 'error';
         }
 
@@ -99,23 +99,23 @@ class SliderController extends Controller
             'alert-type' => $alertType
         );
 
-        return redirect()->route('sliders.index')->with($notification);
+        return redirect()->route('banners.index')->with($notification);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Banner $banner)
     {
-        $image_path = '/upload/sliders/' . $slider->image;
+        $image_path = '/upload/banners/' . $banner->image;
         unlink(public_path() . $image_path);
 
-        $message = 'Slider has been deleted successfully.';
+        $message = 'Banner has been deleted successfully.';
         $alertType = 'success';
 
-        $deleted = $slider->delete();
+        $deleted = $banner->delete();
         if (!$deleted) {
-            $message = 'Slider dose not deleted successfully.!';
+            $message = 'Banner dose not deleted successfully.!';
             $alertType = 'error';
         }
 
@@ -124,6 +124,6 @@ class SliderController extends Controller
             'alert-type' => $alertType
         );
 
-        return redirect()->route('sliders.index')->with($notification);
+        return redirect()->route('banners.index')->with($notification);
     }
 }

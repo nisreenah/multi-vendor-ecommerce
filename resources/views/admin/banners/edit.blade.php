@@ -18,45 +18,45 @@
                         @endif
                     </div>
 
-                    <form action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('banners.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
                         <div class="border p-4 rounded">
-
                             <div class="card-title d-flex align-items-center">
-                                <h5 class="mb-0 text-info"><i class='bx bx-cart'></i> Update Category</h5>
+                                <h5 class="mb-0 text-info"><i class="bx bx-repeat"></i> Update Banner</h5>
                             </div>
                             <hr/>
 
                             <div class="row mb-3">
-                                <label for="name" class="col-sm-3 col-form-label">Category Name</label>
+                                <label for="title" class="col-sm-3 col-form-label">Banner Title</label>
                                 <div class="col-sm-9">
-                                    <input name="name" value="{{ old('name', $category->name) }}" type="text"
-                                           class="form-control" id="name" placeholder="Category Name">
+                                    <input name="title" type="text" class="form-control" id="title"
+                                           value="{{ old('title', $banner->title) }}" placeholder="Banner Title">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label for="slug" class="col-sm-3 col-form-label">Slug</label>
+                                <label for="url" class="col-sm-3 col-form-label">Banner URL</label>
                                 <div class="col-sm-9">
-                                    <input name="slug" value="{{ old('slug', $category->slug) }}" type="text"
-                                           class="form-control" id="slug" placeholder="slug-name">
+                                    <input name="url" type="url" class="form-control" id="url"
+                                           value="{{ old('url', $banner->url) }}" placeholder="URL">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label for="image" class="col-sm-3 col-form-label">Upload The Category Image</label>
+                                <label for="image" class="col-sm-3 col-form-label">Upload A Banner Image</label>
                                 <div class="col-sm-9">
                                     <input name="image" type="file" class="form-control" id="image">
                                 </div>
                             </div>
+
                             <div class="row mb-3">
                                 <label for="image" class="col-sm-3 col-form-label">Current Image</label>
 
                                 <div class="col-sm-9">
-                                    <img class="" border="2" width="250px"
-                                         src="{{ asset('upload/categories/'. $category->image ) }}">
+                                    <img class="img-fluid img-thumbnail"
+                                         src="{{ asset('upload/banners/'. $banner->image ) }}">
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@
                                         Close
                                     </button>
 
-                                    <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                    <form action="{{ route('banners.destroy', $banner->id) }}" method="post">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-danger px-5">

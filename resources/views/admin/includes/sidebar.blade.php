@@ -56,13 +56,13 @@
             </ul>
         </li>
         <li class="menu-label">UI Elements</li>
-{{--        <li>--}}
-{{--            <a href="">--}}
-{{--                <div class="parent-icon"><i class='bx bx-cookie'></i>--}}
-{{--                </div>--}}
-{{--                <div class="menu-title">Widgets</div>--}}
-{{--            </a>--}}
-{{--        </li>--}}
+        {{--        <li>--}}
+        {{--            <a href="">--}}
+        {{--                <div class="parent-icon"><i class='bx bx-cookie'></i>--}}
+        {{--                </div>--}}
+        {{--                <div class="menu-title">Widgets</div>--}}
+        {{--            </a>--}}
+        {{--        </li>--}}
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -107,7 +107,8 @@
             <ul>
                 <li><a href="{{ route('sub-categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All SubCategories</a>
                 </li>
-                <li><a href="{{ route('sub-categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New SubCategory</a>
+                <li><a href="{{ route('sub-categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New
+                        SubCategory</a>
             </ul>
         </li>
 
@@ -155,14 +156,12 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
-                <div class="menu-title">Content</div>
+                <div class="menu-title">Banners</div>
             </a>
             <ul>
-                <li><a href="content-grid-system.html"><i class="bx bx-right-arrow-alt"></i>Grid System</a>
+                <li><a href="{{ route('banners.index') }}"><i class="bx bx-right-arrow-alt"></i>All Banners</a>
                 </li>
-                <li><a href="content-typography.html"><i class="bx bx-right-arrow-alt"></i>Typography</a>
-                </li>
-                <li><a href="content-text-utilities.html"><i class="bx bx-right-arrow-alt"></i>Text Utilities</a>
+                <li><a href="{{ route('banners.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Banner</a>
                 </li>
             </ul>
         </li>
