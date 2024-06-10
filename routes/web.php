@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('sliders', SliderController::class);
+    Route::resource('banners', BannerController::class);
 
 });
 
