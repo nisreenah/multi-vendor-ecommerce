@@ -11,14 +11,14 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-user-circle"></i> Users</a>
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-cart"></i> Sub Categories</a>
                     </li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">Add New User</a>
+                <a href="{{ route('categories.create') }}" class="btn btn-primary">Add New Sub Category</a>
             </div>
         </div>
     </div>
@@ -32,47 +32,28 @@
                     <thead>
                     <tr class="table-primary">
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Role</th>
-
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Joined At</th>
+                        <th>Main Category Name</th>
+                        <th>Sub Category Name</th>
+                        <th>Slug</th>
+                        <th>Updated At</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
+                    @foreach($categories as $category)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->username }}</td>
-                            <td>
-                                @if($user->getRoleNames()[0] == 'admin')
-                                    <span class="badge bg-secondary">Admin</span>
-                                @elseif($user->getRoleNames()[0] == 'vendor')
-                                    <span class="badge bg-warning">Vendor</span>
-                                @else
-                                    <span class="badge bg-primary">User</span>
-                                @endif
-                            </td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                @if($user->status == 'active')
-                                    <span class="badge rounded-pill bg-info">Active</span>
-                                @else
-                                    <span class="badge rounded-pill bg-danger">Inactive</span>
-                                @endif
-                            </td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->category->name }}</td>
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->slug }}</td>
+                            <td>{{ $category->updated_at }}</td>
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="{{ route('users.edit', $user->id) }}" class=""><i class="bx bxs-edit"></i></a>
+                                    <a href="{{ route('sub-categories.edit', $category->id) }}" class=""><i
+                                            class="bx bxs-edit"></i></a>
                                     <a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
                                 </div>
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>
@@ -83,6 +64,7 @@
     </div>
 
 @endsection
+
 
 @section('scripts')
 

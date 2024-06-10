@@ -11,19 +11,19 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-user-circle"></i> Users</a>
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-cookie"></i> Brands</a>
                     </li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">Add New User</a>
+                <a href="{{ route('products.create') }}" type="button" class="btn btn-primary">Add New Product</a>
             </div>
         </div>
     </div>
     <!--end breadcrumb-->
-
+    {{--    <h6 class="mb-0 text-uppercase">DataTable Example</h6>--}}
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -32,47 +32,48 @@
                     <thead>
                     <tr class="table-primary">
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Role</th>
-
-                        <th>Email</th>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Selling Price</th>
+                        <th>Discount Price</th>
                         <th>Status</th>
-                        <th>Joined At</th>
+                        <th>Vendor</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
+                    @foreach($products as $product)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->username }}</td>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->code }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td class="text-center">{{ $product->selling_price }}</td>
+                            <td class="text-center">{{ $product->discount_price }}</td>
                             <td>
-                                @if($user->getRoleNames()[0] == 'admin')
-                                    <span class="badge bg-secondary">Admin</span>
-                                @elseif($user->getRoleNames()[0] == 'vendor')
-                                    <span class="badge bg-warning">Vendor</span>
-                                @else
-                                    <span class="badge bg-primary">User</span>
-                                @endif
-                            </td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                @if($user->status == 'active')
+                                @if($product->status == 'active')
                                     <span class="badge rounded-pill bg-info">Active</span>
                                 @else
                                     <span class="badge rounded-pill bg-danger">Inactive</span>
                                 @endif
                             </td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $product->user->name }}</td>
+
                             <td>
                                 <div class="d-flex order-actions">
-                                    <a href="{{ route('users.edit', $user->id) }}" class=""><i class="bx bxs-edit"></i></a>
-                                    <a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
+                                    <a href="{{ route('gallery.show', $product->id) }}" class="ms-3">
+                                        <i class="fadeIn animated bx bx-images"></i>
+                                    </a>
+
+                                    <a href="{{ route('products.edit', $product->id) }}" class="ms-3">
+                                        <i class="bx bxs-edit"></i>
+                                    </a>
+
+                                    <a href="{{ route('products.show', $product->id) }}" class="ms-3">
+                                        <i class="lni lni-eye"></i>
+                                    </a>
+
                                 </div>
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>

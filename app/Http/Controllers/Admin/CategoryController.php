@@ -31,9 +31,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-
         $inputs = $request->all();
-        //dd($inputs);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
@@ -56,7 +54,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // show all sub categories of the given main category
+        $categories = $category->subCategories()->get();
+        return view('admin.sub-categories.index', compact('categories'));
     }
 
     /**
