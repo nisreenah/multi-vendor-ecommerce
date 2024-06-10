@@ -137,6 +137,20 @@
                 <li><a href="{{ route('users.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New User</a>
             </ul>
         </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-video-recording"></i>
+                </div>
+                <div class="menu-title">Sliders</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('sliders.index') }}"><i class="bx bx-right-arrow-alt"></i>All Sliders</a>
+                </li>
+                <li><a href="{{ route('sliders.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Slider</a>
+            </ul>
+        </li>
+
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>

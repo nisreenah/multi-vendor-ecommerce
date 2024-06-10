@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('sub-categories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('sliders', SliderController::class);
 
 });
 
